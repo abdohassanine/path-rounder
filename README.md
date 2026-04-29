@@ -1,6 +1,6 @@
-# path-rounder-fillet
+# path-rounder
 
-`path-rounder-fillet` rounds sharp joints between line and Bezier path segments using circular fillets.
+`path-rounder` rounds sharp joints between line and Bezier path segments using circular fillets.
 
 - Runtime: plain JavaScript (no dependencies)
 - API: `roundCorners()` and `toSVGPath()`
@@ -9,18 +9,17 @@
 ## Live demo
 
 Try it online: <https://abdohassanine.github.io/path-rounder/demo/>
-Open `demo/index.html` to run the demo locally.
 
 ## Install
 
 ```bash
-npm install path-rounder-fillet
+npm install path-rounder
 ```
 
 ## Quick usage (Node / CommonJS)
 
 ```js
-const { roundCorners, toSVGPath } = require('path-rounder-fillet');
+const { roundCorners, toSVGPath } = require('path-rounder');
 
 const path = [
   { type: 'L', p1: [0, 0], p2: [120, 0] },
