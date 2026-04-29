@@ -1,0 +1,13 @@
+body { font-family: system-ui, sans-serif; margin: 24px; background: #fafafa; color: #222; }
+h1 { margin-bottom: 8px; }
+.row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
+.card { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
+.card h3 { margin: 0 0 8px; font-size: 14px; color: #666; font-weight: 600; }
+svg { display: block; }
+.original { stroke: #ccc; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+.rounded { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+.ctrl { fill: #f59e0b; }
+.pt { fill: #1f2937; }
+label { display: inline-block; margin-right: 12px; font-size: 13px; }
+input[type=range] { vertical-align: middle; }
+.controls { margin-top: 16px; padding: 12px; background: white; border: 1px solid #ddd; border-radius: 8px; }

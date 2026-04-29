@@ -1,144 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Path Corner Rounder Demo</title>
-        <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-        <style>
-  body { font-family: system-ui, sans-serif; margin: 24px; background: #fafafa; color: #222; }
-  h1 { margin-bottom: 8px; }
-  .row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
-  .card { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
-  .card h3 { margin: 0 0 8px; font-size: 14px; color: #666; font-weight: 600; }
-  svg { display: block; }
-  .original { stroke: #ccc; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
-  .rounded  { stroke: #2563eb; stroke-width: 2.5; fill: none; }
-  .ctrl     { fill: #f59e0b; }
-  .pt       { fill: #1f2937; }
-  label { display: inline-block; margin-right: 12px; font-size: 13px; }
-  input[type=range] { vertical-align: middle; }
-  .controls { margin-top: 16px; padding: 12px; background: white; border: 1px solid #ddd; border-radius: 8px; }
-        </style>
-    </head>
-    <body>
-        <h1>Path Corner Rounder</h1>
-        <p>Rounds corners between any combination of lines and Bezier curves. Dashed gray = original, blue = rounded.</p>
-        <div class="controls">
-            <label>
-                Radius:
-                <input
-                    type="range"
-                    id="radius"
-                    min="0"
-                    max="80"
-                    value="30"
-                >
-                <span id="rval">30</span>
-            </label>
-        </div>
-        <div class="row">
-            <div class="card">
-                <h3>Line → Line</h3>
-                <svg
-                    id="svg1"
-                    width="280"
-                    height="220"
-                    viewBox="0 0 280 220"
-                ></svg>
-            </div>
-            <div class="card">
-                <h3>Line → Curve (cubic)</h3>
-                <svg
-                    id="svg2"
-                    width="280"
-                    height="220"
-                    viewBox="0 0 280 220"
-                ></svg>
-            </div>
-            <div class="card">
-                <h3>Curve → Curve (cubic ↔ cubic)</h3>
-                <svg
-                    id="svg3"
-                    width="280"
-                    height="220"
-                    viewBox="0 0 280 220"
-                ></svg>
-            </div>
-            <div class="card">
-                <h3>Mixed multi-corner path</h3>
-                <svg
-                    id="svg4"
-                    width="600"
-                    height="280"
-                    viewBox="0 0 600 280"
-                ></svg>
-            </div>
-        </div>
-        <script src="../path-rounder.js"></script>
-        <script>
-// Use PathRounder.* — path-rounder.js already defines global `roundCorners` / `toSVGPath`
-// (function decls), so `const { roundCorners }` would redeclare and throw.
-const { roundCorners: fillet, toSVGPath: toPathD } = window.PathRounder;
-
-// ---- demo paths ----
-const paths = {
-  svg1: [
-    { type:'L', p1:[40, 40],  p2:[200, 60] },
-    { type:'L', p1:[200, 60], p2:[60, 180] },
-  ],
-  svg2: [
-    { type:'L', p1:[40, 180], p2:[140, 60] },
-    { type:'C', p1:[140, 60], c1:[200, 60], c2:[220, 120], p2:[240, 180] },
-  ],
-  // G¹ break at (160,100): end tangent →, start tangent ↑ so dashed path shows a kink, blue shows fillet
-  svg3: [
-    { type:'C', p1:[32, 100],  c1:[70, 30],  c2:[120, 100],  p2:[160, 100] },
-    { type:'C', p1:[160, 100], c1:[160, 50],  c2:[220, 40],  p2:[240, 30] },
-  ],
-  svg4: [
-    { type:'L', p1:[40, 40],   p2:[200, 40] },
-    { type:'L', p1:[200, 40], p2:[260, 140] },
-    { type:'C', p1:[260, 140], c1:[300, 200], c2:[360, 200], p2:[400, 140] },
-    { type:'C', p1:[400, 140], c1:[440, 80],  c2:[480, 80],  p2:[520, 140] },
-    { type:'L', p1:[520, 140], p2:[520, 240] },
-    { type:'L', p1:[520, 240], p2:[60, 240] },
-  ],
-};
-
-function draw(svgId, segs, r) {
-  const svg = document.getElementById(svgId);
-  svg.innerHTML = '';
-  // original
-  const o = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  o.setAttribute('d', toPathD(segs));
-  o.setAttribute('class', 'original');
-  svg.appendChild(o);
-
-  // rounded
-  const rounded = fillet(segs, r);
-  const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  p.setAttribute('d', toPathD(rounded));
-  p.setAttribute('class', 'rounded');
-  svg.appendChild(p);
-
-  // endpoint dots
-  for (const s of segs) {
-    for (const pt of [s.p1, s.p2]) {
-      const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      c.setAttribute('cx', pt[0]); c.setAttribute('cy', pt[1]); c.setAttribute('r', 2.5);
-      c.setAttribute('class', 'pt');
-      svg.appendChild(c);
-    }
-  }
-}
-
-function redraw() {
-  const r = +document.getElementById('radius').value;
-  document.getElementById('rval').textContent = r;
-  for (const id of Object.keys(paths)) draw(id, paths[id], r);
-}
-document.getElementById('radius').addEventListener('input', redraw);
-redraw();
-        </script>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title>Path Corner Rounder Demo</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <h1>Path Corner Rounder</h1>
+    <p>Rounds corners between any combination of lines and Bezier curves. Dashed gray = original, blue = rounded.</p>
+    <div class="controls">
+      <label>
+        Radius:
+        <input
+          type="range"
+          id="radius"
+          min="0"
+          max="80"
+          value="30"
+        >
+        <span id="rval">30</span>
+      </label>
+    </div>
+    <div class="row">
+      <div class="card">
+        <h3>Line → Line</h3>
+        <svg
+          id="svg1"
+          width="280"
+          height="220"
+          viewBox="0 0 280 220"
+        ></svg>
+      </div>
+      <div class="card">
+        <h3>Line → Curve (cubic)</h3>
+        <svg
+          id="svg2"
+          width="280"
+          height="220"
+          viewBox="0 0 280 220"
+        ></svg>
+      </div>
+      <div class="card">
+        <h3>Curve → Curve (cubic ↔ cubic)</h3>
+        <svg
+          id="svg3"
+          width="280"
+          height="220"
+          viewBox="0 0 280 220"
+        ></svg>
+      </div>
+      <div class="card">
+        <h3>Mixed multi-corner path</h3>
+        <svg
+          id="svg4"
+          width="600"
+          height="280"
+          viewBox="0 0 600 280"
+        ></svg>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/path-rounder@0.1.0/path-rounder.js"></script>
+    <script src="./main.js"></script>
+  </body>
 </html>
