@@ -1,10 +1,8 @@
 <!doctype html>
 <html>
-  <<<<<<<< HEAD:demo/index.html
   <head>
     <meta charset="utf-8" />
     <title>Path Corner Rounder Demo</title>
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <style>
       body {
         font-family: system-ui, sans-serif;
@@ -76,13 +74,14 @@
       Rounds corners between any combination of lines and Bezier curves. Dashed
       gray = original, blue = rounded.
     </p>
+
     <div class="controls">
-      <label>
-        Radius:
-        <input type="range" id="radius" min="0" max="80" value="30" />
-        <span id="rval">30</span>
-      </label>
+      <label
+        >Radius: <input type="range" id="radius" min="0" max="80" value="30" />
+        <span id="rval">30</span></label
+      >
     </div>
+
     <div class="row">
       <div class="card">
         <h3>Line → Line</h3>
@@ -101,6 +100,7 @@
         <svg id="svg4" width="600" height="280" viewBox="0 0 600 280"></svg>
       </div>
     </div>
+
     <script src="../path-rounder.js"></script>
     <script>
       // Use PathRounder.* — path-rounder.js already defines global `roundCorners` / `toSVGPath`

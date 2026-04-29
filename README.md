@@ -35,8 +35,8 @@ const { roundCorners, toSVGPath } = require("path-rounder-fillet");
 >>>>>>> 7bf1a1b (update README.md)
 
 const path = [
-  { type: "L", p1: [0, 0], p2: [120, 0] },
-  { type: "L", p1: [120, 0], p2: [120, 80] },
+  { type: 'L', p1: [0, 0], p2: [120, 0] },
+  { type: 'L', p1: [120, 0], p2: [120, 80] }
 ];
 
 const rounded = roundCorners(path, 16);
