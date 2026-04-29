@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "path-rounder",
-=======
-  "name": "path-rounder-fillet",
->>>>>>> d06ffed (init)
   "version": "0.1.0",
   "description": "Round corners between line and Bezier path segments with circular fillets.",
   "main": "path-rounder.js",
@@ -24,7 +20,6 @@
     "email": "abdohassanine@gmail.com",
     "url": "https://www.abdohassanine.com"
   },
-<<<<<<< HEAD
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abdohassanine/path-rounder.git"
@@ -32,11 +27,6 @@
   "bugs": {
     "email": "abdohassanine@gmail.com",
     "url": "https://github.com/abdohassanine/path-rounder/issues"
-=======
-  "homepage": "https://www.abdohassanine.com",
-  "bugs": {
-    "email": "abdohassanine@gmail.com"
->>>>>>> d06ffed (init)
   },
   "license": "MIT"
 }
