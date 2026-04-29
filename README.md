@@ -8,7 +8,7 @@
 
 ## Live demo
 
-Try it online: <https://abdohassanine.github.io/path-rounder/demo/index.html>
+Try it online: <https://abdohassanine.github.io/path-rounder/demo/>
 Open `demo/index.html` to run the demo locally.
 
 ## Install
@@ -24,7 +24,7 @@ const { roundCorners, toSVGPath } = require('path-rounder-fillet');
 
 const path = [
   { type: 'L', p1: [0, 0], p2: [120, 0] },
-  { type: 'L', p1: [120, 0], p2: [120, 80] }
+  { type: 'L', p1: [120, 0], p2: [120, 80] },
 ];
 
 const rounded = roundCorners(path, 16);
@@ -41,7 +41,7 @@ console.log(d);
 
   const path = [
     { type: 'L', p1: [0, 0], p2: [120, 0] },
-    { type: 'L', p1: [120, 0], p2: [120, 80] }
+    { type: 'L', p1: [120, 0], p2: [120, 80] },
   ];
 
   const rounded = roundCorners(path, 16);
@@ -108,7 +108,9 @@ Cubic Bezier:
 Arc (output from the library):
 
 ```js
-{ type: 'A', p1, p2, center, radius, startAngle, endAngle, ccw }
+{
+  type: ('A', p1, p2, center, radius, startAngle, endAngle, ccw);
+}
 ```
 
 ## License
