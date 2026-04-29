@@ -3,16 +3,17 @@
 `path-rounder` rounds sharp joints between line and Bezier path segments using circular fillets.
 
 <<<<<<< HEAD
+
 - Runtime: plain JavaScript (no dependencies)
 - API: `roundCorners()` and `toSVGPath()`
-- Works in Node/CommonJS and browsers
-=======
-Perfect for:
+- # Works in Node/CommonJS and browsers
+
+  Perfect for:
 
 - **SVG paths** – Smooth icons, shapes, and designs
 - **Graphics/CAD** – Add rounded corners to any path
 - **Animation** – Fillet corners while maintaining curve smoothness
->>>>>>> 7bf1a1b (update README.md)
+  > > > > > > > 7bf1a1b (update README.md)
 
 ## Live demo
 
@@ -61,8 +62,8 @@ console.log(d);
 </script>
 ```
 
-<<<<<<< HEAD
-=======
+# <<<<<<< HEAD
+
 **Note:** Download `path-rounder.js` from npm or GitHub, or use a bundler (Webpack/Vite/esbuild).
 
 ## More examples
@@ -104,7 +105,8 @@ const rounded = roundCorners(path, 15, { closed: true });
 const svg = toSVGPath(rounded); // Ready for <path d="...">
 ```
 
->>>>>>> 7bf1a1b (update README.md)
+> > > > > > > 7bf1a1b (update README.md)
+
 ## API
 
 ## `roundCorners(segments, radius, options?)`
