@@ -1,0 +1,33 @@
+{
+  "name": "path-rounder-fillet",
+  "version": "0.1.1",
+  "description": "Round corners between line and Bezier path segments with circular fillets.",
+  "main": "path-rounder.js",
+  "files": [
+    "path-rounder.js",
+    "index.js",
+    "README.md"
+  ],
+  "keywords": [
+    "svg",
+    "path",
+    "bezier",
+    "fillet",
+    "geometry"
+  ],
+  "author": {
+    "name": "Abdo Hassanine",
+    "email": "abdohassanine@gmail.com",
+    "url": "https://www.abdohassanine.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdohassanine/path-rounder.git"
+  },
+  "homepage": "https://abdohassanine.github.io/path-rounder/",
+  "bugs": {
+    "email": "abdohassanine@gmail.com",
+    "url": "https://github.com/abdohassanine/path-rounder/issues"
+  },
+  "license": "MIT"
+}
