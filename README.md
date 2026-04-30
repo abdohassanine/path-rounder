@@ -16,6 +16,22 @@ Try it online: <https://abdohassanine.github.io/path-rounder/demo/>
 npm install path-rounder
 ```
 
+## CDN usage
+
+Use either jsDelivr or unpkg:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/path-rounder@0.1.0/path-rounder.js"></script>
+<!-- or -->
+<script src="https://unpkg.com/path-rounder@0.1.0/path-rounder.js"></script>
+```
+
+```html
+<script>
+  const { roundCorners, toSVGPath } = window.PathRounder;
+</script>
+```
+
 ## Quick usage (Node / CommonJS)
 
 ```js

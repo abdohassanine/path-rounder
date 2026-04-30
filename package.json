@@ -1,6 +1,6 @@
 {
   "name": "path-rounder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Round corners between line and Bezier path segments with circular fillets.",
   "main": "path-rounder.js",
   "files": [
